@@ -1,0 +1,10 @@
+project: my-awesome-kernel
+kernel_slug: mnem0nic7/my-awesome-kernel
+code_file: model.ipynb
+accelerator: none
+internet: false
+privacy: private
+datasets: []
+competitions: []
+outputs:
+  download_to: .kaggle-outputs/

@@ -1,0 +1,10 @@
+venv/
+data/
+catboost_info/
+__pycache__/
+*.csv
+!tomorrow_manifest.csv
+kaggle.json
+kaggle_pulled_kernels_s5e12/
+.ipynb_checkpoints/
+*.pyc

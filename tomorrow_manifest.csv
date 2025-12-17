@@ -1,0 +1,176 @@
+file,recipe
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w3_base_60_40.csv,0.6*cutoff + 0.4*base
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w3_gated_60_40.csv,0.6*cutoff + 0.4*gated
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w3_base_70_30.csv,0.7*cutoff + 0.30000000000000004*base
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w3_gated_70_30.csv,0.7*cutoff + 0.30000000000000004*gated
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w3_base_80_19.csv,0.8*cutoff + 0.19999999999999996*base
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w3_gated_80_19.csv,0.8*cutoff + 0.19999999999999996*gated
+submission_tomorrow_pa_gate_s3_q80_submission_v8_cutoff_boost_w3_vs_base.csv,"gate(PA,pa_gate_s3_q80)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s3_q80_submission_v8_cutoff_boost_w3_vs_gated.csv,"gate(PA,pa_gate_s3_q80)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s3_q85_submission_v8_cutoff_boost_w3_vs_base.csv,"gate(PA,pa_gate_s3_q85)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s3_q85_submission_v8_cutoff_boost_w3_vs_gated.csv,"gate(PA,pa_gate_s3_q85)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s3_q90_submission_v8_cutoff_boost_w3_vs_base.csv,"gate(PA,pa_gate_s3_q90)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s3_q90_submission_v8_cutoff_boost_w3_vs_gated.csv,"gate(PA,pa_gate_s3_q90)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s4_q80_submission_v8_cutoff_boost_w3_vs_base.csv,"gate(PA,pa_gate_s4_q80)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s4_q80_submission_v8_cutoff_boost_w3_vs_gated.csv,"gate(PA,pa_gate_s4_q80)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s4_q85_submission_v8_cutoff_boost_w3_vs_base.csv,"gate(PA,pa_gate_s4_q85)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s4_q85_submission_v8_cutoff_boost_w3_vs_gated.csv,"gate(PA,pa_gate_s4_q85)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s4_q90_submission_v8_cutoff_boost_w3_vs_base.csv,"gate(PA,pa_gate_s4_q90)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s4_q90_submission_v8_cutoff_boost_w3_vs_gated.csv,"gate(PA,pa_gate_s4_q90)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s5_q80_submission_v8_cutoff_boost_w3_vs_base.csv,"gate(PA,pa_gate_s5_q80)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s5_q80_submission_v8_cutoff_boost_w3_vs_gated.csv,"gate(PA,pa_gate_s5_q80)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s5_q85_submission_v8_cutoff_boost_w3_vs_base.csv,"gate(PA,pa_gate_s5_q85)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s5_q85_submission_v8_cutoff_boost_w3_vs_gated.csv,"gate(PA,pa_gate_s5_q85)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s5_q90_submission_v8_cutoff_boost_w3_vs_base.csv,"gate(PA,pa_gate_s5_q90)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s5_q90_submission_v8_cutoff_boost_w3_vs_gated.csv,"gate(PA,pa_gate_s5_q90)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s6_q80_submission_v8_cutoff_boost_w3_vs_base.csv,"gate(PA,pa_gate_s6_q80)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s6_q80_submission_v8_cutoff_boost_w3_vs_gated.csv,"gate(PA,pa_gate_s6_q80)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s6_q85_submission_v8_cutoff_boost_w3_vs_base.csv,"gate(PA,pa_gate_s6_q85)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s6_q85_submission_v8_cutoff_boost_w3_vs_gated.csv,"gate(PA,pa_gate_s6_q85)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s6_q90_submission_v8_cutoff_boost_w3_vs_base.csv,"gate(PA,pa_gate_s6_q90)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s6_q90_submission_v8_cutoff_boost_w3_vs_gated.csv,"gate(PA,pa_gate_s6_q90)*cutoff + (1-gate)*gated"
+submission_tomorrow_3way_submission_v8_cutoff_boost_w3_055_030_015.csv,0.55*cutoff + 0.30*gated + 0.15*base
+submission_tomorrow_3way_submission_v8_cutoff_boost_w3_055_030_015_xgb.csv,0.55*cutoff + 0.30*gated + 0.15*xgb
+submission_tomorrow_3way_submission_v8_cutoff_boost_w3_050_030_020_xgb.csv,0.50*cutoff + 0.30*gated + 0.20*xgb
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w5_base_60_40.csv,0.6*cutoff + 0.4*base
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w5_gated_60_40.csv,0.6*cutoff + 0.4*gated
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w5_base_70_30.csv,0.7*cutoff + 0.30000000000000004*base
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w5_gated_70_30.csv,0.7*cutoff + 0.30000000000000004*gated
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w5_base_80_19.csv,0.8*cutoff + 0.19999999999999996*base
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w5_gated_80_19.csv,0.8*cutoff + 0.19999999999999996*gated
+submission_tomorrow_pa_gate_s3_q80_submission_v8_cutoff_boost_w5_vs_base.csv,"gate(PA,pa_gate_s3_q80)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s3_q80_submission_v8_cutoff_boost_w5_vs_gated.csv,"gate(PA,pa_gate_s3_q80)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s3_q85_submission_v8_cutoff_boost_w5_vs_base.csv,"gate(PA,pa_gate_s3_q85)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s3_q85_submission_v8_cutoff_boost_w5_vs_gated.csv,"gate(PA,pa_gate_s3_q85)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s3_q90_submission_v8_cutoff_boost_w5_vs_base.csv,"gate(PA,pa_gate_s3_q90)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s3_q90_submission_v8_cutoff_boost_w5_vs_gated.csv,"gate(PA,pa_gate_s3_q90)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s4_q80_submission_v8_cutoff_boost_w5_vs_base.csv,"gate(PA,pa_gate_s4_q80)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s4_q80_submission_v8_cutoff_boost_w5_vs_gated.csv,"gate(PA,pa_gate_s4_q80)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s4_q85_submission_v8_cutoff_boost_w5_vs_base.csv,"gate(PA,pa_gate_s4_q85)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s4_q85_submission_v8_cutoff_boost_w5_vs_gated.csv,"gate(PA,pa_gate_s4_q85)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s4_q90_submission_v8_cutoff_boost_w5_vs_base.csv,"gate(PA,pa_gate_s4_q90)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s4_q90_submission_v8_cutoff_boost_w5_vs_gated.csv,"gate(PA,pa_gate_s4_q90)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s5_q80_submission_v8_cutoff_boost_w5_vs_base.csv,"gate(PA,pa_gate_s5_q80)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s5_q80_submission_v8_cutoff_boost_w5_vs_gated.csv,"gate(PA,pa_gate_s5_q80)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s5_q85_submission_v8_cutoff_boost_w5_vs_base.csv,"gate(PA,pa_gate_s5_q85)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s5_q85_submission_v8_cutoff_boost_w5_vs_gated.csv,"gate(PA,pa_gate_s5_q85)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s5_q90_submission_v8_cutoff_boost_w5_vs_base.csv,"gate(PA,pa_gate_s5_q90)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s5_q90_submission_v8_cutoff_boost_w5_vs_gated.csv,"gate(PA,pa_gate_s5_q90)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s6_q80_submission_v8_cutoff_boost_w5_vs_base.csv,"gate(PA,pa_gate_s6_q80)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s6_q80_submission_v8_cutoff_boost_w5_vs_gated.csv,"gate(PA,pa_gate_s6_q80)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s6_q85_submission_v8_cutoff_boost_w5_vs_base.csv,"gate(PA,pa_gate_s6_q85)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s6_q85_submission_v8_cutoff_boost_w5_vs_gated.csv,"gate(PA,pa_gate_s6_q85)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s6_q90_submission_v8_cutoff_boost_w5_vs_base.csv,"gate(PA,pa_gate_s6_q90)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s6_q90_submission_v8_cutoff_boost_w5_vs_gated.csv,"gate(PA,pa_gate_s6_q90)*cutoff + (1-gate)*gated"
+submission_tomorrow_3way_submission_v8_cutoff_boost_w5_055_030_015.csv,0.55*cutoff + 0.30*gated + 0.15*base
+submission_tomorrow_3way_submission_v8_cutoff_boost_w5_055_030_015_xgb.csv,0.55*cutoff + 0.30*gated + 0.15*xgb
+submission_tomorrow_3way_submission_v8_cutoff_boost_w5_050_030_020_xgb.csv,0.50*cutoff + 0.30*gated + 0.20*xgb
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w8_base_60_40.csv,0.6*cutoff + 0.4*base
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w8_gated_60_40.csv,0.6*cutoff + 0.4*gated
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w8_base_70_30.csv,0.7*cutoff + 0.30000000000000004*base
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w8_gated_70_30.csv,0.7*cutoff + 0.30000000000000004*gated
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w8_base_80_19.csv,0.8*cutoff + 0.19999999999999996*base
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w8_gated_80_19.csv,0.8*cutoff + 0.19999999999999996*gated
+submission_tomorrow_pa_gate_s3_q80_submission_v8_cutoff_boost_w8_vs_base.csv,"gate(PA,pa_gate_s3_q80)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s3_q80_submission_v8_cutoff_boost_w8_vs_gated.csv,"gate(PA,pa_gate_s3_q80)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s3_q85_submission_v8_cutoff_boost_w8_vs_base.csv,"gate(PA,pa_gate_s3_q85)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s3_q85_submission_v8_cutoff_boost_w8_vs_gated.csv,"gate(PA,pa_gate_s3_q85)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s3_q90_submission_v8_cutoff_boost_w8_vs_base.csv,"gate(PA,pa_gate_s3_q90)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s3_q90_submission_v8_cutoff_boost_w8_vs_gated.csv,"gate(PA,pa_gate_s3_q90)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s4_q80_submission_v8_cutoff_boost_w8_vs_base.csv,"gate(PA,pa_gate_s4_q80)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s4_q80_submission_v8_cutoff_boost_w8_vs_gated.csv,"gate(PA,pa_gate_s4_q80)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s4_q85_submission_v8_cutoff_boost_w8_vs_base.csv,"gate(PA,pa_gate_s4_q85)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s4_q85_submission_v8_cutoff_boost_w8_vs_gated.csv,"gate(PA,pa_gate_s4_q85)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s4_q90_submission_v8_cutoff_boost_w8_vs_base.csv,"gate(PA,pa_gate_s4_q90)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s4_q90_submission_v8_cutoff_boost_w8_vs_gated.csv,"gate(PA,pa_gate_s4_q90)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s5_q80_submission_v8_cutoff_boost_w8_vs_base.csv,"gate(PA,pa_gate_s5_q80)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s5_q80_submission_v8_cutoff_boost_w8_vs_gated.csv,"gate(PA,pa_gate_s5_q80)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s5_q85_submission_v8_cutoff_boost_w8_vs_base.csv,"gate(PA,pa_gate_s5_q85)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s5_q85_submission_v8_cutoff_boost_w8_vs_gated.csv,"gate(PA,pa_gate_s5_q85)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s5_q90_submission_v8_cutoff_boost_w8_vs_base.csv,"gate(PA,pa_gate_s5_q90)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s5_q90_submission_v8_cutoff_boost_w8_vs_gated.csv,"gate(PA,pa_gate_s5_q90)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s6_q80_submission_v8_cutoff_boost_w8_vs_base.csv,"gate(PA,pa_gate_s6_q80)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s6_q80_submission_v8_cutoff_boost_w8_vs_gated.csv,"gate(PA,pa_gate_s6_q80)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s6_q85_submission_v8_cutoff_boost_w8_vs_base.csv,"gate(PA,pa_gate_s6_q85)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s6_q85_submission_v8_cutoff_boost_w8_vs_gated.csv,"gate(PA,pa_gate_s6_q85)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s6_q90_submission_v8_cutoff_boost_w8_vs_base.csv,"gate(PA,pa_gate_s6_q90)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s6_q90_submission_v8_cutoff_boost_w8_vs_gated.csv,"gate(PA,pa_gate_s6_q90)*cutoff + (1-gate)*gated"
+submission_tomorrow_3way_submission_v8_cutoff_boost_w8_055_030_015.csv,0.55*cutoff + 0.30*gated + 0.15*base
+submission_tomorrow_3way_submission_v8_cutoff_boost_w8_055_030_015_xgb.csv,0.55*cutoff + 0.30*gated + 0.15*xgb
+submission_tomorrow_3way_submission_v8_cutoff_boost_w8_050_030_020_xgb.csv,0.50*cutoff + 0.30*gated + 0.20*xgb
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w12_base_60_40.csv,0.6*cutoff + 0.4*base
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w12_gated_60_40.csv,0.6*cutoff + 0.4*gated
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w12_base_70_30.csv,0.7*cutoff + 0.30000000000000004*base
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w12_gated_70_30.csv,0.7*cutoff + 0.30000000000000004*gated
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w12_base_80_19.csv,0.8*cutoff + 0.19999999999999996*base
+submission_tomorrow_cutoff_submission_v8_cutoff_boost_w12_gated_80_19.csv,0.8*cutoff + 0.19999999999999996*gated
+submission_tomorrow_pa_gate_s3_q80_submission_v8_cutoff_boost_w12_vs_base.csv,"gate(PA,pa_gate_s3_q80)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s3_q80_submission_v8_cutoff_boost_w12_vs_gated.csv,"gate(PA,pa_gate_s3_q80)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s3_q85_submission_v8_cutoff_boost_w12_vs_base.csv,"gate(PA,pa_gate_s3_q85)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s3_q85_submission_v8_cutoff_boost_w12_vs_gated.csv,"gate(PA,pa_gate_s3_q85)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s3_q90_submission_v8_cutoff_boost_w12_vs_base.csv,"gate(PA,pa_gate_s3_q90)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s3_q90_submission_v8_cutoff_boost_w12_vs_gated.csv,"gate(PA,pa_gate_s3_q90)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s4_q80_submission_v8_cutoff_boost_w12_vs_base.csv,"gate(PA,pa_gate_s4_q80)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s4_q80_submission_v8_cutoff_boost_w12_vs_gated.csv,"gate(PA,pa_gate_s4_q80)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s4_q85_submission_v8_cutoff_boost_w12_vs_base.csv,"gate(PA,pa_gate_s4_q85)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s4_q85_submission_v8_cutoff_boost_w12_vs_gated.csv,"gate(PA,pa_gate_s4_q85)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s4_q90_submission_v8_cutoff_boost_w12_vs_base.csv,"gate(PA,pa_gate_s4_q90)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s4_q90_submission_v8_cutoff_boost_w12_vs_gated.csv,"gate(PA,pa_gate_s4_q90)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s5_q80_submission_v8_cutoff_boost_w12_vs_base.csv,"gate(PA,pa_gate_s5_q80)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s5_q80_submission_v8_cutoff_boost_w12_vs_gated.csv,"gate(PA,pa_gate_s5_q80)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s5_q85_submission_v8_cutoff_boost_w12_vs_base.csv,"gate(PA,pa_gate_s5_q85)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s5_q85_submission_v8_cutoff_boost_w12_vs_gated.csv,"gate(PA,pa_gate_s5_q85)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s5_q90_submission_v8_cutoff_boost_w12_vs_base.csv,"gate(PA,pa_gate_s5_q90)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s5_q90_submission_v8_cutoff_boost_w12_vs_gated.csv,"gate(PA,pa_gate_s5_q90)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s6_q80_submission_v8_cutoff_boost_w12_vs_base.csv,"gate(PA,pa_gate_s6_q80)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s6_q80_submission_v8_cutoff_boost_w12_vs_gated.csv,"gate(PA,pa_gate_s6_q80)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s6_q85_submission_v8_cutoff_boost_w12_vs_base.csv,"gate(PA,pa_gate_s6_q85)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s6_q85_submission_v8_cutoff_boost_w12_vs_gated.csv,"gate(PA,pa_gate_s6_q85)*cutoff + (1-gate)*gated"
+submission_tomorrow_pa_gate_s6_q90_submission_v8_cutoff_boost_w12_vs_base.csv,"gate(PA,pa_gate_s6_q90)*cutoff + (1-gate)*base"
+submission_tomorrow_pa_gate_s6_q90_submission_v8_cutoff_boost_w12_vs_gated.csv,"gate(PA,pa_gate_s6_q90)*cutoff + (1-gate)*gated"
+submission_tomorrow_3way_submission_v8_cutoff_boost_w12_055_030_015.csv,0.55*cutoff + 0.30*gated + 0.15*base
+submission_tomorrow_3way_submission_v8_cutoff_boost_w12_055_030_015_xgb.csv,0.55*cutoff + 0.30*gated + 0.15*xgb
+submission_tomorrow_3way_submission_v8_cutoff_boost_w12_050_030_020_xgb.csv,0.50*cutoff + 0.30*gated + 0.20*xgb
+
+submission_v8_cutoff_boost_w5_origenc.csv,cutoff model + orig_mean/orig_count features from diabetes_dataset.csv
+submission_v9_blend_cutoff_base_50_50.csv,0.5*cutoff(origenc) + 0.5*base
+submission_v9_blend_cutoff_gated_50_50.csv,0.5*cutoff(origenc) + 0.5*gated
+submission_v9_blend_cutoff_base_60_40.csv,0.6*cutoff(origenc) + 0.4*base
+submission_v9_blend_cutoff_gated_60_40.csv,0.6*cutoff(origenc) + 0.4*gated
+submission_v9_blend_cutoff_base_70_30.csv,0.7*cutoff(origenc) + 0.3*base
+submission_v9_blend_cutoff_gated_70_30.csv,0.7*cutoff(origenc) + 0.3*gated
+submission_v9_blend_cutoff_base_80_19.csv,0.8*cutoff(origenc) + 0.2*base
+submission_v9_blend_cutoff_gated_80_19.csv,0.8*cutoff(origenc) + 0.2*gated
+submission_v9_gate_pa_cutoff_base_soft.csv,gate(PA)*cutoff(origenc) + (1-gate)*base (soft)
+submission_v9_gate_pa_cutoff_base_sharp.csv,gate(PA)*cutoff(origenc) + (1-gate)*base (sharp)
+submission_v9_gate_pa_cutoff_gated_soft.csv,gate(PA)*cutoff(origenc) + (1-gate)*gated (soft)
+submission_v9_gate_pa_cutoff_gated_sharp.csv,gate(PA)*cutoff(origenc) + (1-gate)*gated (sharp)
+
+submission_v8_cutoff_boost_w12_origenc.csv,cutoff model + orig_mean/orig_count features (post_weight=12)
+submission_v8_cutoff_boost_w15_origenc.csv,cutoff model + orig_mean/orig_count features (post_weight=15)
+submission_v10_blend_cutoff_base_70_30.csv,0.7*cutoff(origenc_w15) + 0.3*base
+submission_v10_blend_cutoff_gated_70_30.csv,0.7*cutoff(origenc_w15) + 0.3*gated
+submission_v10_gate_pa_cutoff_base_soft.csv,gate(PA)*cutoff(origenc_w15) + (1-gate)*base (soft)
+submission_v10_gate_pa_cutoff_base_sharp.csv,gate(PA)*cutoff(origenc_w15) + (1-gate)*base (sharp)
+submission_v10_gate_pa_cutoff_gated_soft.csv,gate(PA)*cutoff(origenc_w15) + (1-gate)*gated (soft)
+submission_v10_gate_pa_cutoff_gated_sharp.csv,gate(PA)*cutoff(origenc_w15) + (1-gate)*gated (sharp)
+submission_v8_cutoff_boost_w10_origenc.csv,cutoff model + orig_mean/orig_count features (post_weight=10)
+submission_v8_cutoff_boost_w18_origenc.csv,cutoff model + orig_mean/orig_count features (post_weight=18)
+submission_v11_blend_cutoff_base_70_30.csv,0.7*cutoff(origenc_w18) + 0.3*base
+submission_v11_blend_cutoff_gated_70_30.csv,0.7*cutoff(origenc_w18) + 0.3*gated
+submission_v11_gate_pa_cutoff_base_soft.csv,gate(PA)*cutoff(origenc_w18) + (1-gate)*base (soft)
+submission_v11_gate_pa_cutoff_base_sharp.csv,gate(PA)*cutoff(origenc_w18) + (1-gate)*base (sharp)
+submission_v11_gate_pa_cutoff_gated_soft.csv,gate(PA)*cutoff(origenc_w18) + (1-gate)*gated (soft)
+submission_v11_gate_pa_cutoff_gated_sharp.csv,gate(PA)*cutoff(origenc_w18) + (1-gate)*gated (sharp)
+submission_v10_blend_w15orig_prevbest_60_40.csv,0.6*w15_origenc + 0.4*prev_best_pa_gate_soft
+submission_v12_cutoff_boost_w15_origenc_sm50.csv,cutoff model + orig_mean/orig_count with smoothing m=50 (post_weight=15)
+submission_v12_gate_pa_cutoff_gated_soft.csv,gate(PA)*cutoff(origenc_w15_sm50) + (1-gate)*gated (soft)
+submission_v12_gate_pa_cutoff_gated_sharp.csv,gate(PA)*cutoff(origenc_w15_sm50) + (1-gate)*gated (sharp)
+submission_v12_blend_cutoff_gated_70_30.csv,0.7*cutoff(origenc_w15_sm50) + 0.3*gated
+submission_v8_cutoff_boost_w20_origenc.csv,cutoff model + orig_mean/orig_count features (post_weight=20)
+submission_v13_gate_pa_cutoff_gated_soft.csv,gate(PA)*cutoff(origenc_w20) + (1-gate)*gated (soft)
+submission_v13_blend_cutoff_gated_70_30.csv,0.7*cutoff(origenc_w20) + 0.3*gated
+submission_v14_catboost_te.csv,CatBoost + Target Encoding + Outer Merge (v14)
+submission_v14_blend_cat_w15_50_50.csv,0.5*v14_catboost + 0.5*v8_w15_origenc
+submission_v14_blend_cat_w15_30_70.csv,0.3*v14_catboost + 0.7*v8_w15_origenc
+submission_v14_blend_cat_w15_70_30.csv,0.7*v14_catboost + 0.3*v8_w15_origenc

@@ -1,0 +1,13 @@
+{
+  "id": "mnem0nic7/my-awesome-kernel",
+  "title": "My Awesome Kernel",
+  "code_file": "model.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_internet": false,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "enable_tpu": false
+}
