@@ -174,3 +174,4 @@ submission_v14_catboost_te.csv,CatBoost + Target Encoding + Outer Merge (v14)
 submission_v14_blend_cat_w15_50_50.csv,0.5*v14_catboost + 0.5*v8_w15_origenc
 submission_v14_blend_cat_w15_30_70.csv,0.3*v14_catboost + 0.7*v8_w15_origenc
 submission_v14_blend_cat_w15_70_30.csv,0.7*v14_catboost + 0.3*v8_w15_origenc
+submission_v15_shift_stack.csv,V15 shift-aware stacking (LGBM raw + LGBM orig-binned enc + CatBoost) with p_test domain feature meta-model
