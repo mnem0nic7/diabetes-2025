@@ -1,0 +1,16 @@
+# Core modeling stack (scripts in this repo)
+numpy
+pandas
+scikit-learn
+lightgbm
+catboost
+
+# Kaggle submission tooling
+kaggle
+kagglesdk
+
+# Local UI
+streamlit
+
+# Notebook kernel (VS Code / Jupyter)
+ipykernel

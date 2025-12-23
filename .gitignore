@@ -1,7 +1,12 @@
 venv/
+.venv/
 data/
 catboost_info/
 __pycache__/
+
+# Local artifacts (can be huge)
+scratch/
+cache/
 *.csv
 !tomorrow_manifest.csv
 kaggle.json
