@@ -13,25 +13,25 @@ class Defaults:
     target: str = "diagnosed_diabetes"
 
     # Anchor submissions
-    base_sub: str = "scratch/blend_cutoff80_v16orig19.csv"
-    gated_sub: str = "submission_v20_weighted_gated.csv"
+    base_sub: str = "submissions/blend_cutoff80_v16orig19.csv"
+    gated_sub: str = "submissions/submission_v20_weighted_gated.csv"
 
     # Candidates to gate/blend (comma-separated)
     candidates: str = ",".join(
         [
-            "submission_v23_stack_advanced.csv",
-            "submission_v22_recon_weighted_lgb.csv",
-            "submission_v18_multislice.csv",
-            "submission_v16_drop6_pl05_heavy3.csv",
-            "submission_v17_lgb_orig_mix.csv",
-            "submission_v21_autogluon_full.csv",
+            "submissions/submission_v23_stack_advanced.csv",
+            "submissions/submission_v22_recon_weighted_lgb.csv",
+            "submissions/submission_v18_multislice.csv",
+            "submissions/submission_v16_drop6_pl05_heavy3.csv",
+            "submissions/submission_v17_lgb_orig_mix.csv",
+            "submissions/submission_v21_autogluon_full.csv",
         ]
     )
 
     # Optional diversity submission
     xgb_sub: str = ""
 
-    out_dir: str = "scratch"
+    out_dir: str = "submissions"
     manifest: str = "tomorrow_manifest_pa.csv"
 
 

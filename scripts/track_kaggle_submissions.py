@@ -69,7 +69,7 @@ def main() -> None:
     p.add_argument("-c", "--competition", default="playground-series-s5e12")
     p.add_argument("--limit", type=int, default=50)
     p.add_argument("--contains", default="AUTO", help="Only keep rows whose description contains this substring")
-    p.add_argument("--out", default="scratch/submission_tracking.csv")
+    p.add_argument("--out", default="submissions/submission_tracking.csv")
     p.add_argument(
         "--watch",
         type=int,

@@ -9,7 +9,7 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 from kagglesdk.competitions.types.competition_enums import SubmissionGroup, SubmissionSortBy
 
 
-REPO_ROOT = Path(__file__).resolve().parent
+REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
 @dataclass(frozen=True)
@@ -21,6 +21,8 @@ class Defaults:
             "tomorrow_manifest_v2.csv",
             "tomorrow_manifest_pa.csv",
             "daily_manifest.csv",
+            "submissions/tomorrow_manifest_top_quality.csv",
+            "submissions/tomorrow_manifest.csv",
             "scratch/tomorrow_manifest.csv",
             "tomorrow_manifest.csv",
         ]

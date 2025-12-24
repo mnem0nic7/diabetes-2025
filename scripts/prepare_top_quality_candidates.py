@@ -8,17 +8,17 @@ import numpy as np
 import pandas as pd
 
 
-REPO_ROOT = Path(__file__).resolve().parent
+REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
 @dataclass(frozen=True)
 class Defaults:
     target: str = "diagnosed_diabetes"
-    out_dir: str = "scratch"
-    manifest: str = "scratch/tomorrow_manifest_top_quality.csv"
+    out_dir: str = "submissions"
+    manifest: str = "submissions/tomorrow_manifest_top_quality.csv"
 
     # Local AUC priors sources (higher is better).
-    priors: str = "scratch/unsubmitted_candidates.csv,scratch/shortlist_rank.csv"
+    priors: str = "submissions/unsubmitted_candidates.csv,submissions/shortlist_rank.csv,scratch/unsubmitted_candidates.csv,scratch/shortlist_rank.csv"
 
     # How many base models to consider.
     top_k: int = 8
@@ -96,15 +96,18 @@ def _load_auc_priors(paths: list[Path]) -> dict[str, float]:
 
 
 def _resolve_candidate_paths(priors: dict[str, float]) -> list[Path]:
-    # Prefer root-level file, then scratch/.
+    # Prefer submissions/, then root-level file, then scratch/.
     resolved: list[tuple[float, Path]] = []
     for base, auc in priors.items():
         if not base.lower().endswith(".csv"):
             continue
 
+        p0 = (REPO_ROOT / "submissions" / base)
         p1 = (REPO_ROOT / base)
         p2 = (REPO_ROOT / "scratch" / base)
-        if p1.exists():
+        if p0.exists():
+            resolved.append((auc, p0))
+        elif p1.exists():
             resolved.append((auc, p1))
         elif p2.exists():
             resolved.append((auc, p2))

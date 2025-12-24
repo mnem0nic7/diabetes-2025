@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 
 
-REPO_ROOT = Path(__file__).resolve().parent
+REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
 def _read_manifest(path: Path) -> list[dict[str, str]]:
@@ -68,6 +68,9 @@ def main() -> None:
         r"tomorrow_lin_blend_cutoff80_v16orig19_submission_v22_recon_weighted_lgb_90_09\.csv$",
         r"tomorrow_lin_blend_cutoff80_v16orig19_submission_v17_lgb_orig_mix_90_09\.csv$",
 
+        # Diversity model: GPU KNN (anchor-heavy)
+        r"tomorrow_lin_blend_cutoff80_v16orig19_submission_knn_gpu_k201_full_90_09\.csv$",
+
         # A couple slightly less anchored (0.85)
         r"tomorrow_lin_blend_cutoff80_v16orig19_submission_v23_stack_advanced_85_15\.csv$",
         r"tomorrow_lin_blend_cutoff80_v16orig19_submission_v16_drop6_pl05_heavy3_85_15\.csv$",
@@ -76,6 +79,10 @@ def main() -> None:
         # Nonlinear combos that sometimes beat linear
         r"tomorrow_logitavg_blend_cutoff80_v16orig19_submission_v23_stack_advanced\.csv$",
         r"tomorrow_pmean_p10_blend_cutoff80_v16orig19_submission_v23_stack_advanced\.csv$",
+
+        # Nonlinear combos vs GPU KNN
+        r"tomorrow_logitavg_blend_cutoff80_v16orig19_submission_knn_gpu_k201_full\.csv$",
+        r"tomorrow_pmean_p10_blend_cutoff80_v16orig19_submission_knn_gpu_k201_full\.csv$",
 
         # PA gates (only a few), for the strongest candidate vs base/gated anchors
         r"tomorrow_pa_gate_s5_q90_submission_v23_stack_advanced_vs_blend_cutoff80_v16orig19\.csv$",

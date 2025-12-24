@@ -1,7 +1,7 @@
 {
   "id": "mnem0nic7/my-awesome-kernel",
   "title": "My Awesome Kernel",
-  "code_file": "model.ipynb",
+  "code_file": "notebooks/model.ipynb",
   "language": "python",
   "kernel_type": "notebook",
   "is_private": true,

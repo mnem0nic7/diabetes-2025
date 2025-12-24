@@ -44,7 +44,7 @@ class TargetEncoder(BaseEstimator, TransformerMixin):
                 if col in self.mappings_ and agg_func in self.mappings_[col]:
                     map_series = self.mappings_[col][agg_func]
                     X_transformed[new_col_name] = X[col].map(map_series)
-                    X_transformed[new_col_name].fillna(self.global_stats_[agg_func], inplace=True)
+                    X_transformed[new_col_name] = X_transformed[new_col_name].fillna(self.global_stats_[agg_func])
                 else:
                     X_transformed[new_col_name] = self.global_stats_[agg_func]
 
@@ -120,7 +120,28 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("--data-dir", default="data")
     p.add_argument("--orig-csv", default="data/orig2/diabetes_dataset.csv")
-    p.add_argument("--out", default="submission_v14_catboost_te.csv")
+    p.add_argument("--out", default="submissions/submission_v14_catboost_te.csv")
+    p.add_argument("--task-type", default="CPU", choices=["CPU", "GPU"], help="CatBoost task_type")
+    p.add_argument("--folds", type=int, default=5)
+    p.add_argument("--seed", type=int, default=42)
+    p.add_argument("--n-estimators", type=int, default=12000)
+    p.add_argument("--depth", type=int, default=3)
+    p.add_argument("--learning-rate", type=float, default=0.01)
+    p.add_argument("--early-stopping-rounds", type=int, default=300)
+    p.add_argument(
+        "--extended-strat",
+        action="store_true",
+        help=(
+            "Use extended stratification via a derived 'multicat' label: "
+            "LabelEncode([family_history_diabetes, cardiovascular_history, education_level, target])"
+        ),
+    )
+    p.add_argument(
+        "--limit-train-rows",
+        type=int,
+        default=0,
+        help="If >0, subsample this many rows from the (possibly augmented) training data for quick smoke tests.",
+    )
     args = p.parse_args()
 
     train = pd.read_csv(os.path.join(args.data_dir, "train.csv"))
@@ -130,13 +151,12 @@ def main():
 
     # Add id to orig as in notebook
     orig['id'] = orig.index
-    
+
     # Ensure orig has same columns as train
     orig = orig[train.columns.to_list()]
 
-    # Merge orig to train (outer)
-    # Note: This might duplicate IDs if they overlap.
-    train = train.merge(orig, how='outer')
+    # Append external data (safer than merge-on-all-common-cols)
+    train = pd.concat([train, orig], axis=0, ignore_index=True)
     
     # Add orig mean/count features
     # Note: The notebook does this AFTER merging orig to train?
@@ -162,7 +182,7 @@ def main():
     # The notebook uses 'orig_' + col.
     
     new_features = []
-    features = test.columns.to_list()
+    features = [c for c in test.columns.to_list() if c != 'id']
     # Remove 'id' from features if present? Notebook doesn't drop it from 'features' list derived from test.columns
     # test.columns includes 'id'.
     
@@ -201,29 +221,49 @@ def main():
     X = train.drop(columns=['diagnosed_diabetes'])
     y = train['diagnosed_diabetes']
 
+    if args.limit_train_rows and args.limit_train_rows > 0:
+        rng = np.random.default_rng(args.seed)
+        keep = rng.choice(len(X), size=min(int(args.limit_train_rows), len(X)), replace=False)
+        keep = np.sort(keep)
+        X = X.iloc[keep].reset_index(drop=True)
+        y = y.iloc[keep].reset_index(drop=True)
+
     # Target Encoding on int/float columns
-    int_cols = X.select_dtypes(include=['int','float']).columns.to_list()
+    int_cols = [c for c in X.select_dtypes(include=['int', 'float']).columns.to_list() if c != 'id']
     
     # CatBoost Params
     CAT_params = {
-        'n_estimators': 12000,
-        'depth': 3,
-        'learning_rate': 0.01,
+        'n_estimators': args.n_estimators,
+        'depth': args.depth,
+        'learning_rate': args.learning_rate,
         'eval_metric': 'AUC',
-        'random_seed': 123,
+        'random_seed': args.seed,
         'use_best_model': True,
         'verbose': 1000,
-        'early_stopping_rounds': 300,
-        # 'task_type': 'GPU' # Disable GPU for compatibility/stability in this env
+        'early_stopping_rounds': args.early_stopping_rounds,
+        'task_type': args.task_type,
     }
 
-    folds = 5
-    skf = StratifiedKFold(n_splits=folds, shuffle=True, random_state=42)
+    folds = int(args.folds)
+    skf = StratifiedKFold(n_splits=folds, shuffle=True, random_state=args.seed)
+
+    strat_y = y
+    if args.extended_strat:
+        strat_cols = ['family_history_diabetes', 'cardiovascular_history', 'education_level']
+        missing = [c for c in strat_cols if c not in train.columns]
+        if missing:
+            raise SystemExit(f"Missing columns required for --extended-strat: {missing}")
+        multicat = LabelEncoder().fit_transform(
+            pd.concat([train.loc[: len(y) - 1, strat_cols].reset_index(drop=True), y.reset_index(drop=True)], axis=1)
+            .astype(str)
+            .agg('_'.join, axis=1)
+        )
+        strat_y = pd.Series(multicat)
 
     cat_test_pred = np.zeros(len(test))
     cat_auc_scores = []
 
-    for i, (train_index, test_index) in enumerate(skf.split(X, y), 1):
+    for i, (train_index, test_index) in enumerate(skf.split(X, strat_y), 1):
         X_train, X_test = X.iloc[train_index], X.iloc[test_index]
         y_train, y_test = y.iloc[train_index], y.iloc[test_index]
 

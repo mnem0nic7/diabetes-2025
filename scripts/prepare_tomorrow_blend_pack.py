@@ -10,18 +10,19 @@ import pandas as pd
 @dataclass(frozen=True)
 class Defaults:
     target: str = "diagnosed_diabetes"
-    out_dir: str = "scratch"
+    out_dir: str = "submissions"
     manifest: str = "tomorrow_manifest_v2.csv"
     # By convention: first is "best" / anchor.
     subs: str = ",".join(
         [
-            "scratch/blend_cutoff80_v16orig19.csv",
-            "submission_v23_stack_advanced.csv",
-            "submission_v21_autogluon_full.csv",
-            "submission_v18_multislice.csv",
-            "submission_v16_drop6_pl05_heavy3.csv",
-            "submission_v17_lgb_orig_mix.csv",
-            "submission_v22_recon_weighted_lgb.csv",
+            "submissions/blend_cutoff80_v16orig19.csv",
+            "submissions/submission_v23_stack_advanced.csv",
+            "submissions/submission_v21_autogluon_full.csv",
+            "submissions/submission_v18_multislice.csv",
+            "submissions/submission_v16_drop6_pl05_heavy3.csv",
+            "submissions/submission_v17_lgb_orig_mix.csv",
+            "submissions/submission_v22_recon_weighted_lgb.csv",
+            "submissions/submission_knn_gpu_k201_full.csv",
         ]
     )
     weights: str = "0.90,0.85,0.80"

@@ -1,6 +1,6 @@
 project: my-awesome-kernel
 kernel_slug: mnem0nic7/my-awesome-kernel
-code_file: model.ipynb
+code_file: notebooks/model.ipynb
 accelerator: none
 internet: false
 privacy: private

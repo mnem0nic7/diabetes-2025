@@ -12,7 +12,7 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 from kagglesdk.competitions.types.competition_enums import SubmissionGroup, SubmissionSortBy
 
 
-REPO_ROOT = Path(__file__).resolve().parent
+REPO_ROOT = Path(__file__).resolve().parent.parent
 SUBMITTED_LEDGER = REPO_ROOT / "scratch" / "submitted_candidates.csv"
 
 
@@ -531,7 +531,8 @@ def _build_all_candidates_table(manifest_paths: list[Path], score_idx: dict[str,
 
 
 def _run_script(script: str, args: list[str]) -> tuple[int, str]:
-    cmd = [sys.executable, str(REPO_ROOT / script), *args]
+    # Scripts live under scripts/ in this repo.
+    cmd = [sys.executable, str(REPO_ROOT / "scripts" / script), *args]
     try:
         cp = subprocess.run(
             cmd,
@@ -588,7 +589,7 @@ def main() -> None:
 
         st.divider()
         st.caption("Predicted score (AUC)")
-        st.caption("Uses local validation metrics from scratch/*.csv")
+        st.caption("Uses local validation metrics from submissions/*.csv (and scratch/*.csv for legacy)")
         # AUC is higher-is-better; keep as fixed behavior for scoring.
 
         st.divider()
