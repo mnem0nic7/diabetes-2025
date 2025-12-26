@@ -57,6 +57,12 @@ def main() -> None:
 
     # Ordered shortlist (kept intentionally small). Patterns match the 'file' column.
     wanted_patterns = [
+        # OOF-optimized blend candidates (when available)
+        r"tomorrow_oofw_.*\.csv$",
+
+        # Nina-style rank-conditioned segment blend (when available)
+        r"tomorrow_segrank_.*\.csv$",
+
         # Rank-average across many strong models (diversity)
         r"tomorrow_rankavg_.*\.csv$",
 

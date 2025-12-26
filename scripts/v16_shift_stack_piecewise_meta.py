@@ -14,6 +14,28 @@ import lightgbm as lgb
 from catboost import CatBoostClassifier
 
 
+def _dump_pred_npz(
+    *,
+    path: str,
+    name: str,
+    train_id: np.ndarray,
+    y: np.ndarray,
+    oof: np.ndarray,
+    test_id: np.ndarray,
+    test: np.ndarray,
+) -> None:
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    np.savez_compressed(
+        path,
+        name=np.array(name, dtype=object),
+        train_id=train_id.astype(np.int64),
+        y=y.astype(np.int64),
+        oof=oof.astype(np.float64),
+        test_id=test_id.astype(np.int64),
+        test=test.astype(np.float64),
+    )
+
+
 TARGET = "diagnosed_diabetes"
 ID_COL = "id"
 
@@ -307,6 +329,14 @@ def main():
     p.add_argument("--out", default=Config.out)
     p.add_argument("--splits", type=int, default=Config.n_splits)
     p.add_argument("--meta-bins", type=int, default=Config.meta_bins)
+    p.add_argument(
+        "--preds-dir",
+        default="",
+        help=(
+            "Optional directory to dump OOF/test prediction artifacts as .npz files "
+            "(keys: train_id,y,oof,test_id,test,name)."
+        ),
+    )
     args = p.parse_args()
 
     cfg = Config(
@@ -489,9 +519,71 @@ def main():
     meta.fit(X_meta_tr, y)
     final_test = meta.predict_proba(X_meta_te)[:, 1]
 
+    # Cross-fit meta OOF for later blending/diagnostics (using the selected best_C)
+    oof_meta = np.zeros(len(train), dtype=np.float64)
+    for tr_idx, va_idx in cv.split(meta_train, y, groups=groups):
+        scaler_fold = StandardScaler()
+        X_tr = scaler_fold.fit_transform(meta_train.iloc[tr_idx].values)
+        X_va = scaler_fold.transform(meta_train.iloc[va_idx].values)
+        meta_fold = LogisticRegression(
+            C=best_C,
+            penalty="l2",
+            solver="lbfgs",
+            max_iter=5000,
+            random_state=cfg.seed,
+        )
+        meta_fold.fit(X_tr, y[tr_idx])
+        oof_meta[va_idx] = meta_fold.predict_proba(X_va)[:, 1]
+    meta_oof_auc = roc_auc_score(y, oof_meta)
+    print(f"Meta OOF AUC (cross-fit @ best_C): {meta_oof_auc:.5f}")
+
     sub = pd.DataFrame({ID_COL: sample[ID_COL], TARGET: final_test})
     sub.to_csv(cfg.out, index=False)
     print(f"Saved {cfg.out}")
+
+    if args.preds_dir:
+        train_id = train[ID_COL].to_numpy(dtype=np.int64)
+        test_id = test[ID_COL].to_numpy(dtype=np.int64)
+        base = os.path.basename(cfg.out).replace(".csv", "")
+        out_dir = args.preds_dir
+
+        _dump_pred_npz(
+            path=os.path.join(out_dir, f"{base}__lgb_raw.npz"),
+            name=f"{base}__lgb_raw",
+            train_id=train_id,
+            y=y,
+            oof=oof_lgb_raw,
+            test_id=test_id,
+            test=test_lgb_raw,
+        )
+        _dump_pred_npz(
+            path=os.path.join(out_dir, f"{base}__lgb_orig.npz"),
+            name=f"{base}__lgb_orig",
+            train_id=train_id,
+            y=y,
+            oof=oof_lgb_orig,
+            test_id=test_id,
+            test=test_lgb_orig,
+        )
+        _dump_pred_npz(
+            path=os.path.join(out_dir, f"{base}__cat.npz"),
+            name=f"{base}__cat",
+            train_id=train_id,
+            y=y,
+            oof=oof_cat,
+            test_id=test_id,
+            test=test_cat,
+        )
+        _dump_pred_npz(
+            path=os.path.join(out_dir, f"{base}__meta.npz"),
+            name=f"{base}__meta",
+            train_id=train_id,
+            y=y,
+            oof=oof_meta,
+            test_id=test_id,
+            test=final_test,
+        )
+        print(f"Wrote prediction artifacts -> {os.path.abspath(out_dir)}")
 
 
 if __name__ == "__main__":
