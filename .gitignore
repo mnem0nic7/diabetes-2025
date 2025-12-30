@@ -4,6 +4,11 @@ data/
 catboost_info/
 __pycache__/
 
+# Local run artifacts
+preds/
+logs/
+*.npz
+
 # Local artifacts (can be huge)
 scratch/
 cache/

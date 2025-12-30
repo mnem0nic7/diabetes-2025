@@ -35,11 +35,25 @@ def _load_rows(paths: list[Path]) -> list[dict[str, str]]:
 
 def _pick(rows: list[dict[str, str]], pattern: str) -> dict[str, str] | None:
     rx = re.compile(pattern)
+    candidates: list[tuple[float, dict[str, str]]] = []
     for r in rows:
-        if rx.search(r["file"]):
-            if _abs_path(r["file"]).exists():
-                return r
-    return None
+        if not rx.search(r["file"]):
+            continue
+        p = _abs_path(r["file"])
+        if not p.exists():
+            continue
+        try:
+            mtime = p.stat().st_mtime
+        except OSError:
+            mtime = 0.0
+        candidates.append((mtime, r))
+
+    if not candidates:
+        return None
+
+    # Prefer the newest on-disk artifact when multiple candidates match.
+    candidates.sort(key=lambda t: t[0], reverse=True)
+    return candidates[0][1]
 
 
 def main() -> None:
@@ -56,6 +70,10 @@ def main() -> None:
         raise SystemExit("No rows loaded from input manifests")
 
     # Ordered shortlist (kept intentionally small). Patterns match the 'file' column.
+    #
+    # NOTE: Historically this repo used very specific anchor filenames (e.g. v16orig19).
+    # When those anchors aren't available locally, we still want to curate a useful
+    # shortlist from *whatever* candidates exist in the input manifests.
     wanted_patterns = [
         # OOF-optimized blend candidates (when available)
         r"tomorrow_oofw_.*\.csv$",
@@ -63,37 +81,29 @@ def main() -> None:
         # Nina-style rank-conditioned segment blend (when available)
         r"tomorrow_segrank_.*\.csv$",
 
-        # Rank-average across many strong models (diversity)
+        # Rank-average across many models (diversity)
         r"tomorrow_rankavg_.*\.csv$",
 
-        # High-weight blends vs anchor best blend (0.90)
-        r"tomorrow_lin_blend_cutoff80_v16orig19_submission_v23_stack_advanced_90_09\.csv$",
-        r"tomorrow_lin_blend_cutoff80_v16orig19_submission_v16_drop6_pl05_heavy3_90_09\.csv$",
-        r"tomorrow_lin_blend_cutoff80_v16orig19_submission_v18_multislice_90_09\.csv$",
-        r"tomorrow_lin_blend_cutoff80_v16orig19_submission_v21_autogluon_full_90_09\.csv$",
-        r"tomorrow_lin_blend_cutoff80_v16orig19_submission_v22_recon_weighted_lgb_90_09\.csv$",
-        r"tomorrow_lin_blend_cutoff80_v16orig19_submission_v17_lgb_orig_mix_90_09\.csv$",
+        # Anchor-heavy linear blends (prefer 90/10) vs current strong models
+        r"tomorrow_lin_.*_weighted_oofblend_rank_90_09\.csv$",
+        r"tomorrow_lin_.*_weighted_lgbm_le_90_09\.csv$",
+        r"tomorrow_lin_.*_weighted_lgbm_te_90_09\.csv$",
 
-        # Diversity model: GPU KNN (anchor-heavy)
-        r"tomorrow_lin_blend_cutoff80_v16orig19_submission_knn_gpu_k201_full_90_09\.csv$",
-
-        # A couple slightly less anchored (0.85)
-        r"tomorrow_lin_blend_cutoff80_v16orig19_submission_v23_stack_advanced_85_15\.csv$",
-        r"tomorrow_lin_blend_cutoff80_v16orig19_submission_v16_drop6_pl05_heavy3_85_15\.csv$",
-        r"tomorrow_lin_blend_cutoff80_v16orig19_submission_v18_multislice_85_15\.csv$",
+        # A couple slightly less anchored
+        r"tomorrow_lin_.*_weighted_oofblend_rank_85_15\.csv$",
+        r"tomorrow_lin_.*_weighted_lgbm_le_85_15\.csv$",
+        r"tomorrow_lin_.*_weighted_lgbm_te_85_15\.csv$",
 
         # Nonlinear combos that sometimes beat linear
-        r"tomorrow_logitavg_blend_cutoff80_v16orig19_submission_v23_stack_advanced\.csv$",
-        r"tomorrow_pmean_p10_blend_cutoff80_v16orig19_submission_v23_stack_advanced\.csv$",
+        r"tomorrow_logitavg_.*_weighted_oofblend_rank\.csv$",
+        r"tomorrow_logitavg_.*_weighted_lgbm_le\.csv$",
+        r"tomorrow_logitavg_.*_weighted_lgbm_te\.csv$",
+        r"tomorrow_pmean_.*_weighted_oofblend_rank\.csv$",
+        r"tomorrow_pmean_.*_weighted_lgbm_le\.csv$",
+        r"tomorrow_pmean_.*_weighted_lgbm_te\.csv$",
 
-        # Nonlinear combos vs GPU KNN
-        r"tomorrow_logitavg_blend_cutoff80_v16orig19_submission_knn_gpu_k201_full\.csv$",
-        r"tomorrow_pmean_p10_blend_cutoff80_v16orig19_submission_knn_gpu_k201_full\.csv$",
-
-        # PA gates (only a few), for the strongest candidate vs base/gated anchors
-        r"tomorrow_pa_gate_s5_q90_submission_v23_stack_advanced_vs_blend_cutoff80_v16orig19\.csv$",
-        r"tomorrow_pa_gate_s6_q90_submission_v23_stack_advanced_vs_blend_cutoff80_v16orig19\.csv$",
-        r"tomorrow_pa_gate_s5_q90_submission_v23_stack_advanced_vs_submission_v20_weighted_gated\.csv$",
+        # PA gates (only a few)
+        r"tomorrow_pa_gate_.*\.csv$",
     ]
 
     picked: list[dict[str, str]] = []
